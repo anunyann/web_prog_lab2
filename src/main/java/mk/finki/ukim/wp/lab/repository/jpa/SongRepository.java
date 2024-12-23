@@ -10,5 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface SongRepository extends JpaRepository<Song, Long> {
-
+    List<Song> findAllByAlbum_Id(Long albumId);
 }

@@ -5,6 +5,7 @@ import mk.finki.ukim.wp.lab.model.Song;
 import mk.finki.ukim.wp.lab.repository.jpa.AlbumRepository;
 import mk.finki.ukim.wp.lab.repository.jpa.SongRepository;
 import mk.finki.ukim.wp.lab.service.SongService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

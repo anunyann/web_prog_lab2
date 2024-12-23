@@ -1,14 +1,15 @@
 package mk.finki.ukim.wp.lab.model;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Data
 @Entity
+
 @NoArgsConstructor
 public class Song {
     @Id
@@ -16,7 +17,8 @@ public class Song {
     Long id;
 
     String title;
-    String genre;
+    @ManyToOne
+    Genre genre;
     int releaseYear;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -25,11 +27,15 @@ public class Song {
     @ManyToOne
     private Album album;
 
-    public Song(String title, String genre, int releaseYear, List<Artist> performers) {
+    public Song(String title, Genre genre, int releaseYear, List<Artist> performers) {
         this.title = title;
         this.genre = genre;
         this.releaseYear = releaseYear;
         this.performers = performers;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 
     public void setAlbum(Album album) {
